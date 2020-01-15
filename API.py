@@ -34,7 +34,7 @@ for i in range(9):#the inside of this loop can be changed to find different subl
     req = requests.get(link)
     print(num)
     numblock.append(num)
-    json_response = json.loads(req.content) #loading json to get specific bits of json data. req.content is just raw html
+    json_response = json.loads(req.content) #loading json to get specific bits of json data. req.content is just raw html in bytes. req.text decodes it to a string
     InsertCode = InsertCode + '<a href ="' + link + '">' + str(json_response['name']) + '</a><br>\n' 
 homehtml = open("final.html", "w")
 homehtml.write(APICode + InsertCode + CodeEnd)
